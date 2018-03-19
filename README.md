@@ -1,6 +1,6 @@
 ### Comprender los componentes básicos un lenguaje de programación
 
-A continuación se presenta la lista de items que se deberían abarcar en el ejercicio.
+A continuación se presenta la lista de items básicos que se deberían abarcar en el ejercicio.
 
 #### Tipos de Datos
 
@@ -72,9 +72,7 @@ Animales a usar
 | --------------- | ----------------- |
 | Oveja - Sheep   | 15 años           |
 | Cerdo - Pig     | 15 años           |
-| Pollo - Chicken | 10 años           |
 | Ternera - Cow   | 25-30 años        |
-| Conejo - Rabbit | 6-8 años          |
 
 Clase Granja
 
