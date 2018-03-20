@@ -7,7 +7,7 @@ class Sheep < Animal
     end
 
     def calculate_price
-        return price * 2 * age
+        return @price * 2 * @age
     end
 
     def eat

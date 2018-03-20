@@ -5,7 +5,7 @@ load "farm/farm.rb"
 
 if __FILE__ == $0
 
-    puts "The Farm"
+    puts "The Ruby Farm"
     option = 0
     message = "1.Add Animal\n"+
               "2.Del Animal\n"+

@@ -1,5 +1,3 @@
-require_relative '../animals/sheep'
-
 class Farm
     attr_accessor :name
     attr_accessor :address
@@ -31,8 +29,8 @@ class Farm
 
     def search_animal(id)
         found = @animals.select{ |a| a.id == id}
-        puts "Animal Deleted!!"
         found[0].get_info
+        found[0].speak
         return found[0]
     end
 
@@ -51,12 +49,13 @@ class Farm
     def del_animal(id)
         animal = search_animal(id)
         @animals.delete(animal)
+        puts "Animal Deleted!!"
     end
 
     def sort_by_price
         animals_sort = @animals
         limit = @animals.count-1
-        if animals_sort.count > 1
+        if limit > 1
             for i in 1..limit
                 for j in 0..limit-i
                     if animals_sort[j].price > animals_sort[j+1].price

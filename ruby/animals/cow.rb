@@ -7,7 +7,7 @@ class Cow < Animal
     end
 
     def calculate_price
-        return price * 3 * weight
+        return @price * 3 * @weight
     end
 
     def eat

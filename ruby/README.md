@@ -1,3 +1,7 @@
+| Lenguaje | Versión        | SO                |
+| -------- | -------------- | ----------------- |
+| Ruby     | ruby 2.4.3p205 | Linux - Fedora 27 |
+
 ## Variables
 #### Tipos de Datos
 ```ruby
