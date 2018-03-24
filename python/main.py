@@ -5,6 +5,7 @@ from farm.farm import Farm
 
 if __name__ == "__main__":
     print("The Python Farm")
+    
     option = 0
     message = """
                 1.Add Animal\n
@@ -17,22 +18,28 @@ if __name__ == "__main__":
                 8.Sort by price\n
                 9.Sort by age\n
                 10.Exit\n"""
+    
     farm = Farm("My Farm","Av 34")
+    
     while option!=10:
         print(message)
         option = int(input("Ingrese Opcion :"))
+        
         if option == 1:
             print("\n\n Create Animal : \n")
+            
             id = input("Id : ")
             name = input("Name : ")
             age = int(input("Age : "))
             weight = float(input("Weight : "))
             price = float(input("Price : "))
+            
             type_animal = """Enter type of animal : \n
                           1.Sheep\n
                           2.Pig\n
                           3.Cow\n"""
             option_animal = int(input(type_animal))
+            
             if option_animal == 1:
                 animal = Sheep(id,name,age,weight,price)
                 farm.add_animal(animal)

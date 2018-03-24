@@ -7,6 +7,7 @@ if __FILE__ == $0
 
     puts "The Ruby Farm"
     option = 0
+    
     message = "1.Add Animal\n"+
               "2.Del Animal\n"+
               "3.Get Info Farm\n"+
@@ -17,12 +18,16 @@ if __FILE__ == $0
               "8.Sort by price\n"+
               "9.Sort by age\n"+
               "10.Exit\n"
+    
     farm = Farm.new("My Farm","Av 34")
+    
     while option!=10 do
         puts message
         option = gets.chomp.to_i
+        
         if option == 1
             puts "\n\n Create Animal : \n"
+            
             puts "Id : "
             id = gets.chomp
             puts "Name : "
@@ -33,12 +38,14 @@ if __FILE__ == $0
             weight = gets.chomp.to_f
             puts "Price : "
             price = gets.chomp.to_f
+            
             type_animal = "Enter type of animal : \n"+
                           "1.Sheep\n"+
                           "2.Pig\n"+
                           "3.Cow\n"
             puts type_animal
             option_animal = gets.chomp.to_i
+            
             case option_animal
             when 1
                 animal = Sheep.new(id,name,age,weight,price)
