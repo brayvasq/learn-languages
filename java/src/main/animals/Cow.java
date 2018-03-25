@@ -15,7 +15,7 @@ public class Cow extends Animal{
      * @param age is an age that is used to determinate if is alive
      * @param weight 
      * @param price is the simple price of animal
-     * the attribute alive is determinate whit the param age.
+     * the attribute alive is determinate with the param age.
      */
     public Cow(String id,String name,int age, float weight,double price){
         super(id,name,age,weight,price);
@@ -31,7 +31,7 @@ public class Cow extends Animal{
     }
     /**
      * This is a overwritten method from the parent class.
-     * Just show the characteristic sound of the animal.
+     * Just show the characteristic sound of the cow.
      */
     @Override
     public void speak(){

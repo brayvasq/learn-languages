@@ -3,6 +3,12 @@ load "animals/pig.rb"
 load "animals/cow.rb"
 load "farm/farm.rb"
 
+<<-DOC
+    @author brayvasq <brayvasq@gmail.com>
+    @version 0.1
+    This is the principal in to program. 
+    This interact with the user through a inputs.
+DOC
 if __FILE__ == $0
 
     puts "The Ruby Farm"
@@ -59,6 +65,7 @@ if __FILE__ == $0
             else
                 puts "Error type"
             end
+
         elsif option == 2
             puts "Enter Id of animal to delete"
             id = gets.chomp
@@ -83,5 +90,4 @@ if __FILE__ == $0
             animal_sort.each{|a| puts "#{a.id} - #{a.age}"}
         end
     end
-
 end

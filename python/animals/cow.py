@@ -17,7 +17,7 @@ class Cow(Animal):
             :param weight: 
             :param price: is the simple price of cow.
 
-            The attribute alive is determinate whit the param age.
+            The attribute alive is determinate with the param age.
             
             :return: nothing.
         """
@@ -42,7 +42,7 @@ class Cow(Animal):
     def speak(self):
         """
             This is a overwritten method from the parent class.
-            Just show the characteristic sound of the animal.
+            Just show the characteristic sound of the cow.
             :return: nothing.
         """
         print("Muuuu!!")
