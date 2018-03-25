@@ -4,6 +4,12 @@ from animals.cow import Cow
 from farm.farm import Farm
 
 if __name__ == "__main__":
+    """
+        :author: brayvasq <brayvasq@gmail.com>
+        :version: 0.1
+        This is the principal in to program. 
+        This class interact with the user through a inputs.
+    """
     print("The Python Farm")
     
     option = 0
@@ -51,6 +57,7 @@ if __name__ == "__main__":
                 farm.add_animal(animal)
             else:
                 print("Error type")
+
         elif option == 2:
             id = input("Enter Id of animal to delete")
             farm.del_animal(id)
@@ -73,4 +80,5 @@ if __name__ == "__main__":
             animal_sort = farm.sort_by_age()
             for i in animal_sort:
                 print("Id : "+i.id+" - Age : "+str(i.age))
+                
         input("Enter para continuar ...")
