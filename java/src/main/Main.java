@@ -4,7 +4,13 @@ import animals.Sheep;
 import farm.Farm;
 import java.util.Scanner;
 import java.util.LinkedList;
-
+/**
+ * @author brayvasq <brayvasq@gmail.com>
+ * @version 0.1
+ * @since 2018-03-25
+ * This is the principal in to program. 
+ * This class interact with the user through a inputs.
+ */
 public class Main{
     public static void main(String[] args){
         System.out.println("The Java Farm");
@@ -23,7 +29,6 @@ public class Main{
         while (option!=7) {
             System.out.println(message);
             option = reader.nextInt();
-            //reader.close();
             if(option==1){
                 System.out.println("\n\n Create Animal : \n");
                 System.out.print("Id : ");
@@ -39,19 +44,19 @@ public class Main{
 
                 System.out.print("Type : 1.Sheep - 2.Cow : ");
                 int type_animal = reader.nextInt();
+                Animal animal = null;
                 switch (type_animal) {
                     case 1:
-                        Animal animal = new Sheep(id,name,age,weight,price);
-                        farm.addAnimal(animal);
+                        animal = new Sheep(id,name,age,weight,price);
                         break;
                     case 2:
-                        Animal animal = new Cow(id,name,age,weight,price);                    
-                        farm.addAnimal(animal);
+                        animal = new Cow(id,name,age,weight,price);                    
                         break;
                     default:
                         System.out.println("Error in type");
                         break;
                 }
+                farm.addAnimal(animal);
             }else if(option==2){
                 String id = reader.next();
                 farm.delAnimal(id);
