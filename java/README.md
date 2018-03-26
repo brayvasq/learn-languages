@@ -154,7 +154,7 @@ class Hijo extends Padre{
     }
 
     @Override
-    public abstract void saludar(){/*Code*/}
+    public void saludar(){/*Code*/}
 }
 
 
@@ -171,9 +171,9 @@ public interface Padre{
 
 public class Hijo implements Padre{
     @Override
-    public abstract int metodo1(){/*Code*/}
+    public int metodo1(){/*Code*/}
     @Override
-    public abstract void metodo2(params...){/*Code*/}
+    public void metodo2(params...){/*Code*/}
 }
 
 Padre objeto = new Hijo(params...);
