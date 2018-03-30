@@ -1,6 +1,7 @@
 package animals
 
 import animals.Animal
+
 /**
  * @author brayvasq <brayvasq@gmail.com>
  * @version 0.1
@@ -8,6 +9,7 @@ import animals.Animal
  * This is a class that represent a Sheep inheriting animal class.
  */
 class Pig(id:String,name:String,age:Int,weight:Double,price:Double) : Animal(id,name,age,weight,price){
+    
     /**
      * This methods is the constructor of the class and use the parent constructor.
      * @param id is a identifier of the Pig.
@@ -19,10 +21,14 @@ class Pig(id:String,name:String,age:Int,weight:Double,price:Double) : Animal(id,
      */
     init{
         alive = when {
-            age <=25 -> true
+
+            age <= 25 -> true
+            
             else -> false
+        
         }
     }
+    
     /**
      * This is a overwritten method from the parent class.
      * @return final price based on a simple price and the age of the Pig

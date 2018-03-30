@@ -45,6 +45,7 @@ class Farm(var name:String,var address:String){
      */
     fun searchAnimal(id: String): Animal? {
         var resp: Animal? = null
+        
         for (e in this.animals) {
             if (e.id == id) {
                 resp = e
@@ -61,10 +62,13 @@ class Farm(var name:String,var address:String){
     fun getTotalPrice() : Double{
         var price:Double = 0.0
         if(!this.animals.isEmpty()){
+
             val iterator = this.animals.iterator()
+            
             iterator.forEach {
                 price += it.price
             }
+
         }
 
         return price
@@ -84,6 +88,7 @@ class Farm(var name:String,var address:String){
      */
     fun delAnimal(id: String) {
         val animal = searchAnimal(id)
+
         try {
             this.animals.remove(animal)
         } catch (e: Error) {
@@ -99,6 +104,7 @@ class Farm(var name:String,var address:String){
     fun sortByPrice(): ArrayList<Animal> {
         val response = this.animals
         val limit = response.size
+
         if (limit > 1) {
             for (i in 1 until limit) {
                 for (j in 0 until limit - i) {
@@ -110,6 +116,7 @@ class Farm(var name:String,var address:String){
                 }
             }
         }
+
         return response
     }
 

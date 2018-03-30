@@ -1,6 +1,7 @@
 package animals
 
 import animals.Animal
+
 /**
  * @author brayvasq <brayvasq@gmail.com>
  * @version 0.1
@@ -20,8 +21,11 @@ class Sheep(id:String,name:String,age:Int,weight:Double,price:Double) : Animal(i
      */
     init{
         alive = when {
-            age <=25 -> true
+            
+            age <= 25 -> true
+
             else -> false
+        
         }
     }
 

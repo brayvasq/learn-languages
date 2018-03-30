@@ -9,6 +9,7 @@ import animals.Animal
  * This is a class that represent a Cow inheriting animal class.
  */
 class Cow(id:String,name:String,age:Int,weight:Double,price:Double) : Animal(id,name,age,weight,price){
+    
     /**
      * This methods is the constructor of the class and use the parent constructor.
      * @param id is a identifier of the animal.
@@ -20,10 +21,14 @@ class Cow(id:String,name:String,age:Int,weight:Double,price:Double) : Animal(id,
      */
     init{
         alive = when {
-            age <=25 -> true
+
+            age <= 25 -> true
+            
             else -> false
+        
         }
     }
+    
     /**
      * This is a overwritten method from the parent class.
      * @return final price based on a simple price and the weight of the animal

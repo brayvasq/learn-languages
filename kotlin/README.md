@@ -1,182 +1,180 @@
-| Lenguaje | Versión              | SO                |
-| -------- | ---------------------| ----------------- |
-| Java     | java version "9.0.4" | Linux - Fedora 27 |
+| Lenguaje | Versión                  | SO                |
+| -------- | -------------------------| ----------------- |
+| Kotlin   | Kotlin version "0.6.2.0" | Linux - Fedora 27 |
 
 ## Variables
 #### Tipos de Datos
-```java
+```kotlin
 //Accesores
-{public|private|protected} {int|String|double ...} variable;
+{var|val|} variable : {Int|String|Double ...} 
 //Cadenas
-String variable_cadena = "Hola Mundo";
+var variable_cadena : String = "Hola Mundo"
 //Enteros
-int var_entera = 5;
+var var_entera : Int = 5
 //Decimales
-float var_float = 10;
-double var_double = 12.3
+var var_float : Float = 10
+var var_double : Double = 12.3
 //Booleana
-boolean var_booleana = true;
+var var_booleana : Boolean = true
 ```
 #### Tipos de variable
-```java
+```kotlin
 //Variable local - accesible solo en su scope
-String var_local = "Soy una variable local";
+var var_local : String = "Soy una variable local"
 //Variable de objeto - accesible en toda la clase
-String var_objeto;
-this.var_objeto = "Soy una variable de objeto";
+var var_objeto : String = ""
+this.var_objeto = "Soy una variable de objeto"
 
 //Variable de clase - una sola variable para todos los objetos o instacia de la clase
-static String var_clase = "Soy una variable de clase";
+static var var_clase : String = "Soy una variable de clase"
+
+//Constante
+val var_constante : "Hola"
 ```
 #### Estructuras de Control
 
 ##### Condicionales
 Estructura condicional If
-```java
+```kotlin
 if(condicion){
-    System.out.println("condición if");
+    println("condición if")
 }
-else if condicion_dos{
-    System.out.println("condución else if");    
+else if (condicion_dos){
+    println("condución else if");    
 }
 else{
-    System.out.println("default");        
+    println("default");        
 }
 ```
 
 Operador Ternario
-```java
-boolean var_bool = condicion? true:false;
+```kotlin
+// no hay pero se fuede emular
+Boolean var_bool = when{ condicion -> true else -> false}
+Boolean var_bool = if (condicion) true else false
 ```
 
 Estructura condicional Switch
-```java
-switch(variable){
-    case valor:
-        System.out.println("Es valor 1");  
-        break;
-    default:
-        System.out.println("default");  
-        break;
+```kotlin
+when{
+    condicion -> println("Es valor 1")
+    
+    else -> println("default")
 }
 ```
 
 ##### Bucles o Ciclos
 Estructura ciclica for
 
-```java
+```kotlin
 // For normal
-for(int i;i<10;i++){
-    System.out.println(i);  
+for(i in 1 until limit){
+    println(i);  
 }
 // For each
-for(Object i: lista){
-    System.out.println(i.atributo);  
+for(e in this.animals){
+    println(i.atributo) 
+}
+
+//For each arraylist
+arraylist.iterator().forEach{
+    print("valor ${it}")
 }
 ```
 
 Estructura ciclica while
-```java
+```kotlin
 while(condicion){
-    System.out.println("Iterando");  
+    println("Iterando") 
 }
 ```
 #### Estructuras de Datos
 Arreglos o Listas
-```java
+```kotlin
 //Arreglo estatico
-int[] var_arreglo = new int[5];
+var var_arreglo = Array(5)
 //Arreglo dinámico
-ArrayList<Integer> var_arreglo_dinamico = new ArrayList<>();
-//Lista
-LinkedList<Integer> var_lista = new LinkedList<>();
+var var_arreglo_dinamico : ArrayList<Int>  = new ArrayList<>()
 //Añadir elemento
-var_arreglo[1] = 1;
-var_arreglo_dinamico.add(1);
-var_lista.add(1);
+var_arreglo[1] = 1
+var_arreglo_dinamico.add(1)
 //Borrar elemento
-var_arreglo_dinamico.remove(1);
-var_lista.remove(1);
-
+var_arreglo_dinamico.remove(1)
 
 //Obtener valor
-var_arreglo[1];
-var_arreglo.dinamico.get(1);
-var_lista.get(1);
+var_arreglo[1]
+var_arreglo.dinamico.get(1)
 ```
 #### Métodos y Objetos
 Definir Métodos
-```java
-{public|private|protected} {void|int|String...} nombre(String param,...){}
+```kotlin
+func nombre(String param,...) : {String|Int|...}{}
 //Ejemplo
-public void saludar(String nombre){
-    System.out.println("Hola : "+nombre);  
+fun saludar(nombre:String) : String{
+    println("Hola : ${nombre}");  
 }
 ```
 
 Definir Clases
-```java
-public class Clase{
+```kotlin
+class Clase{
 
 }
 
 
 //Constructor
-class Clase{
-    public Clase(params...){
-        this.param1 = param1;
+class Clase(var param1 : String){
+    init{
+        this.param1 = ""
     }
 }
 
 //Instanciar
-Clase objeto = new Clase(params...);
+var objeto : Clase = Clase(params...)
 ```
 
 Herencia e Implementación
-```java
+```kotlin
 
 //Herencia
-public abstract class Padre{
-    String attr1;
-    public Padre(String attr1){
-        this.attr1 = attr1;
+abstract class Padre(var attr1 : String){
+  
+    init{
+
     }
 
-    public void info(){/*Code*/}
+    fun info(){/*Code*/}
 
     //Métodos abstractos
-    public abstract void saludar();
+    abstract fun saludar()
 }
 
-class Hijo extends Padre{
-    public Hijo(String attr1){
-        super(att1)
-    }
+class Hijo(attr1 : String) : Padre(attr1){
 
-    @Override
-    public void saludar(){/*Code*/}
+    
+    override fun saludar(){/*Code*/}
 }
 
 
-Padre objeto = new Hijo(params...)
-objeto.info();
-objeto.saludar();
+var objeto : Padre = Hijo(params...)
+objeto.info()
+objeto.saludar()
 
 
 //Implementación
-public interface Padre{
-    public abstract int metodo1();
-    public abstract void metodo2();
+interface Padre{
+    abstract fun metodo1(): Int
+    abstract fun metodo2(params ...)
 }
 
-public class Hijo implements Padre{
-    @Override
-    public int metodo1(){/*Code*/}
-    @Override
-    public void metodo2(params...){/*Code*/}
+public class Hijo : Padre{
+    
+    override fun metodo1() : Int{/*Code*/}
+    
+    override fun metodo2(params...){/*Code*/}
 }
 
-Padre objeto = new Hijo(params...);
-objeto.metodo1();
-objeto.metodo2(params...);
+var objeto : Padre = Hijo(params...)
+objeto.metodo1()
+objeto.metodo2(params...)
 ```

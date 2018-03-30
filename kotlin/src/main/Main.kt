@@ -31,12 +31,14 @@ fun main(args: Array<String>) {
     var farm : Farm = Farm("My Farm","Av 34")
 
     while (option != 10) {
+        
         println(message)
         print("\nEnter Option : ")
         option = reader.nextInt()
 
         if(option == 1){
             println("\n\n Create Animal : \n")
+
             print("Id : ")
             var id : String= reader.next()
             print("Name : ")

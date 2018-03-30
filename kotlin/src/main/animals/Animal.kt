@@ -1,4 +1,5 @@
 package animals
+
 /**
  * @author brayvasq <brayvasq@gmail.com>
  * @version 0.1
@@ -8,6 +9,7 @@ package animals
  abstract class Animal(var id:String,var name:String,var age:Int,var weight:Double,var price:Double){
 
     var alive:Boolean = false
+    
     /**
      * This methods is the constructor of the class.
      * @param id is a identifier of the animal.
@@ -20,6 +22,7 @@ package animals
     init{
         //alive = false
     }
+
     /**
      * This method just show all information of the animal
      */
@@ -30,6 +33,7 @@ package animals
                           "Weight : ${this.weight}\n"+
                           "Price : ${this.price}\n"+
                           "Alive : ${this.alive}\n";
+
         println(response);
     }
 
@@ -37,16 +41,19 @@ package animals
      * The price is calculate in the child classes
      */
     abstract fun calculatePrice() : Double
+    
     /**
      * This method just show if it is carnivorous or herbivore.
      * Is implemented in the child classes.
      */
     abstract fun speak()
+    
     /**
      * This method show the characteristic sound of the animal.
      * Is implemented in the child classes.
      */
     abstract fun eat()
+    
     /**
      * This method just show the life expectancy of the animal.
      * Is implemented in the child classes.
