@@ -6,20 +6,20 @@
 ## Variables
 #### Tipos de Datos
 ```go
-#Cadenas
+//Cadenas
 var variable_cadena  string 
 variable_cadena = "Hola Mundo"
-#Enteros
+//Enteros
 var var_entera int
 var_entera = 5
-#Decimales
+//Decimales
 var var_decimal float = 10.4
 var_decimal = 10.4
-#Booleana
+//Booleana
 var var_booleana bool
 var_booleana = true
 
-# Inferencia de tipos
+// Inferencia de tipos
 var_t := "Valor"
 ```
 **Nota :** *El tipo de dato se puede omitir* 
@@ -47,79 +47,104 @@ c := map[bool]int{true: 1, false: 0} [5 > 4]
 ```
 
 Estructura condicional Switch
-```python
-#En python no hay una estructura de control llamada switch
+```go
+i := 2
+switch i {
+case 1:
+    fmt.Println("one")
+case 2:
+    fmt.Println("two")
+case 3:
+    fmt.Println("three")
+}
 ```
 
 ##### Bucles o Ciclos
 Estructura ciclica for
 
-```python
-for i in range(0,limite):
-    print("Soy "+str(i))
+```go
+// Clasic
+for i:=0; i<limit; i++{
+
+}
+
+// foreach
+for _,val := range list{
+
+}
+
+// While
+for i < limit{
+
+}
+
+// Infinite
+for {
+
+}
+
 ```
 
-Estructura ciclica while
-```python
-while condicion:
-    print("Iterando")
-```
 #### Estructuras de Datos
 Arreglos o Listas
-```python
-var_arreglo : list = []
-# Añadir elemento
-var_arreglo.append(5)
-# Borrar elemento
-var_arreglo.remove(5)
+```go
 
-# Ordenar
-sorted(var_arreglo, key=lambda item: item.valor)
+var_arreglo := []int
+var_arreglo[0] = 1
 
-# Buscar
-item = [x for x in var_arreglo if condicion]
+var_lista:= make([]int,0)
+// Añadir elemento
+var_lista = append(var_arreglo,item)
 
-# Recorrer
-for i in var_arreglo:
+// Recorrer
+for _,i := range var_lista{
     print(i)
+}
 
-#Acceder a una posición
-var_item = var_arreglo[pos]
+// Acceder a una posición
+var_item = var_lista[pos]
 ```
 #### Métodos y Objetos
 Definir Métodos
-```python
-def metodo():
+```go
+func Metodo(){
     return 5
+}
 
-# Método con parametro
-def metodo(valor = 0)
+// Método con parametro
+func Metodo(valor int) int{
     return valor
+}
 ```
 
 Definir Clases
-```python
-class Clase:
+```go
+type Clase struct
 
-#Constructor
-class Clase:
-    def __init__(self,valor):
-        self.valor = valor
+// Constructor
+type Clase struct{
+    valor int
+}
 
-# Instanciar
-objeto = Clase(5)
+
+// Instanciar
+objeto := Clase{5}
 ```
 
-Herencia
-```ruby
-class Padre:
-    def metodo(self):
-        print("Hola")
+Composición
+```go
+type Padre struct{
+    valor int
+}
 
-class Hijo(Padre):
-    def __init__(self):
-        Padre.__init__(self)
+func (p *Padre) Metodo(){
+    fmt.Println("Hola")
+}
 
-objeto = Hijo()
+type Hijo struct{
+    Padre
+}
+
+objeto := Hijo(Padre{5})
 objeto.metodo()
 ```
