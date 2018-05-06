@@ -40,8 +40,8 @@ type FarmAnimal struct {
 	Id     int
 	Name   string
 	Age    int
-	Weight float32
-	Price  float32
+	Weight float64
+	Price  float64
 	Alive  bool
 }
 
@@ -53,5 +53,9 @@ type FarmAnimal struct {
 	[return] nothing
 */
 func (a *FarmAnimal) GetInfo() {
-	fmt.Printf("Id : %b \nName : %s \nAge : %b \nWeight : %f \nPrice : %f \nAlive : %t\n", a.Id, a.Name, a.Age, a.Weight, a.Price, a.Alive)
+	fmt.Printf("Id : %v \nName : %s \nAge : %v \nWeight : %f \nPrice : %f \nAlive : %t\n", a.Id, a.Name, a.Age, a.Weight, a.Price, a.Alive)
+}
+
+func (a *FarmAnimal) Type() string {
+	return "Animal"
 }

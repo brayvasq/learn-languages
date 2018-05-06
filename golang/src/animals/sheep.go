@@ -33,7 +33,7 @@ type Sheep struct {
 
 	[return] a new sheep with the values give in the params
 */
-func NewSheep(Id int, Name string, Age int, Weight float32, Price float32) Sheep {
+func NewSheep(Id int, Name string, Age int, Weight float64, Price float64) Sheep {
 	sheep := Sheep{}
 	sheep.Id = Id
 	sheep.Name = Name
@@ -58,8 +58,8 @@ func NewSheep(Id int, Name string, Age int, Weight float32, Price float32) Sheep
 
 	[return] final price based on a simple price and the weight of the animal
 */
-func (s *Sheep) CalculatePrice() float32 {
-	return s.Price * 2 * float32(s.Age)
+func (s *Sheep) CalculatePrice() float64 {
+	return s.Price * 2 * float64(s.Age)
 }
 
 /*

@@ -1,48 +1,49 @@
-| Lenguaje | Versión        | SO                |
-| -------- | -------------- | ----------------- |
-| Python   | Python 3.6.4   | Linux - Fedora 27 |
+| Lenguaje | Versión              | SO                |
+| -------- | --------------       | ----------------- |
+| Golang   | go version go1.9.5   | Linux - Fedora 27 |
 
 
 ## Variables
 #### Tipos de Datos
-```python
+```go
 #Cadenas
-variable_cadena : str = "Hola Mundo"
+var variable_cadena  string 
+variable_cadena = "Hola Mundo"
 #Enteros
-var_entera : int = 5
+var var_entera int
+var_entera = 5
 #Decimales
-var_decimal : float = 10.4
+var var_decimal float = 10.4
+var_decimal = 10.4
 #Booleana
-var_booleana : bool = True
+var var_booleana bool
+var_booleana = true
+
+# Inferencia de tipos
+var_t := "Valor"
 ```
 **Nota :** *El tipo de dato se puede omitir* 
 
-#### Tipos de variable
-```python
-#Variable local - accesible solo en su scope
-var_local = "Soy una variable local"
-#Variable de objeto - accesible en toda la clase
-self.var_objeto = "También soy una variable de objeto"
-```
 #### Estructuras de Control
 
 ##### Condicionales
 Estructura condicional If
-```python
-if condicion:
-    print("condición if")
-elif condicion_dos:
-    print("condución elsif")
-else:
-    print("default")
+```go
+if condicion{
+    fmt.Println("condición if")
+}
+else if condicion_dos{
+    fmt.Println("condución elsif")
+}
+else{
+    fmt.Print("default")
+}
 ```
 
 Operador Ternario
-```python
-var_bool = valor if condicion else valor_dos
-
-	cow.Alive = func() bool {if cow.Age <= 25 {return true }else{return false}}()
-    c := map[bool]int{true: 1, false: 0} [5 > 4]
+```go
+variable := func() bool {if cow.Age <= 25 {return true }else{return false}}()
+c := map[bool]int{true: 1, false: 0} [5 > 4]
 ```
 
 Estructura condicional Switch

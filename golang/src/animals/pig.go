@@ -33,7 +33,7 @@ type Pig struct {
 
 	[return] a new Pig with the values give in the params
 */
-func NewPig(Id int, Name string, Age int, Weight float32, Price float32) Pig {
+func NewPig(Id int, Name string, Age int, Weight float64, Price float64) Pig {
 	pig := Pig{}
 	pig.Id = Id
 	pig.Name = Name
@@ -58,8 +58,8 @@ func NewPig(Id int, Name string, Age int, Weight float32, Price float32) Pig {
 
 	[return] final price based on a simple price and the weight of the animal
 */
-func (p *Pig) CalculatePrice() float32 {
-	return p.Price * 2 * float32(p.Age)
+func (p *Pig) CalculatePrice() float64 {
+	return p.Price * 2 * float64(p.Age)
 }
 
 /*
