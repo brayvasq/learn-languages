@@ -1,0 +1,8 @@
+version: "3.1"
+services:
+    farm:
+        build: .
+        ports:
+            - "8000:80"
+        volumes:
+            - ./:/var/www/html/

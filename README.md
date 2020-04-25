@@ -1,95 +1,39 @@
-### Comprender los componentes básicos un lenguaje de programación
+# Learn languages
 
-A continuación se presenta la lista de items básicos que se deberían abarcar en el ejercicio.
+This repository contains some mini-projects carried out in a few languages in order to get a little approach to each language. Works as something like "My first project in X lang". I won't include GUI's, because the main idea is to explore the basics of each language.
 
-#### Tipos de Datos
+What I try to explore in each language:
 
-Dentro de los tipos de datos es necesario inclur los siguientes:
+- Data types
+- Control structures
+- Data structures
+- Methods - Objects
 
-- Cadenas.
-- Numeros Enteros.
-- Numeros Decimales.
-- Variables lógicas o Booleanas.
+Each project has a `README.md` file, it contains instructions to run the project and help to use the commands
+Each project has a `NOTES.md` file, it contains notes about the language.
 
-#### Estructuras de control
+## The Farm
 
-##### Condicionales.
+A simple CLI game, where you can take care of animals. You have to give feed and wash your animals, avoiding their death. Each animal has a time limit in which it can be without food and without a shower.
 
-En este apartado se deben abarcar las estructuras condicionales básicas, tales como:
+- Allows to create animals.
+- Allows to delete animals.
+- Allows to list animals.
+- Allows to list animals by age.
+- Allows to list animals by type.
+- Allows to search a specific animal.
+- Allows to give food to an animal.
+- Allows to give a shower to an animal.
+- Allows to check if the animal is alive.
+- Allows to get help.
 
-- If
-- Switch o equivalentes.
+## Pending
+- [ ] Document IO and Dates.
+- [ ] Refactor all projects
+- [ ] Improve CLI printing and commands
+- [ ] Add a special character when the animal is eating or bathing
+- [ ] Add unit tests
 
-##### Bucles o Ciclos
-
-- For.
-- While.
-
-#### Estructuras de datos
-
-Aquí se explorarán principalmente los arreglos o listas, Aunque también es posible que se estudie los diccionarios.
-
-#### Métodos y Objetos
-
-Es necesario usar métodos para qué la aplicación sea más entendible. También se usarán clases u objetos en caso de que el lenguaje lo permita.
-
-Finalmente es necesario usar los metodos que usa cada lenguaje para la entrada y salida de datos de manera que se garantice la interacción con el usuario.
-
-No se explorará interfaces gráficas o GUI debido a que son componentes más específicos y variantes en cada lenguaje. La idea del ejercicio es abarcar los ítems más básicos de un lenguaje de programación.
-
-#### Enunciado
-
-La aplicación propuesta es la de una granja que permitirá realizar compras y ventas de animales. De manera que se establece los siguientes parametros:
-
-Clase padre Animal:
-
-Atributos
-
-- Id -> Tipo Cadena.
-- Nombre - name-> Tipo Cadena.
-- Edad - age -> Tipo Entero.
-- Peso - weight -> Tipo Decimal.
-- Precio - price-> Tipo Decimal.
-- Vivo - alive -> Tipo Boolean.
-
-Métodos Abstractos.
-
-- Calcular Precio -> Tipo Decimal
-- Comer -> Tipo Void.
-- Hablar -> Tipo Void. Emite sonido característico
-- Obtener Esperanza de vida -> Tipo Void
-
-Métodos normales
-
-- Getters y Setters
-
-
-- Obtener Información -> Tipo Void
-
-Animales a usar
-
-| Animal          | Esperanza de vida |
-| --------------- | ----------------- |
-| Oveja - Sheep   | 15 años           |
-| Cerdo - Pig     | 15 años           |
-| Ternera - Cow   | 25-30 años        |
-
-Clase Granja
-
-Atributos
-
-- Animales -> Tipo Array.
-- Nombre -> Tipo String.
-- Dirección -> Tipo String.
-
-Métodos.
-
-- Obtener Información granja.
-- Obtener número animales.
-- Obtener Información animales.
-- Buscar animal.
-- Obtener precio total animales.
-- Registrar un animal.
-- Borrar un animal.
-- Ordenar animal por precio.
-- Ordenar animal por edad.
+## References
+- https://github.com/gammons/todolist-ruby
+- https://github.com/alexmacniven/shushi

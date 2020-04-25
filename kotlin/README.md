@@ -1,180 +1,153 @@
-| Lenguaje | Versión                  | SO                |
-| -------- | -------------------------| ----------------- |
-| Kotlin   | Kotlin version "0.6.2.0" | Linux - Fedora 27 |
+# Kotlin Farm
+Kotlin example implementation of a little farm game
 
-## Variables
-#### Tipos de Datos
-```kotlin
-//Accesores
-{var|val|} variable : {Int|String|Double ...} 
-//Cadenas
-var variable_cadena : String = "Hola Mundo"
-//Enteros
-var var_entera : Int = 5
-//Decimales
-var var_float : Float = 10
-var var_double : Double = 12.3
-//Booleana
-var var_booleana : Boolean = true
+| Lenguaje | Versión                      | SO                |
+| -------- | --------------               | ----------------- |
+| Kotlin   | Kotlin JVM version: 1.3.61   | Ubuntu 18.04.1    |
+
+## Documentation
+| Type          | Link                                                                         |
+| ------------- | ----------------------------------------------                               |
+| Documentation | https://kotlinlang.org/docs/reference/                                       |
+| Gradle Install| https://linuxize.com/post/how-to-install-gradle-on-ubuntu-18-04/             |
+| Gradle Install| http://yallalabs.com/devops/how-to-install-gradle-ubuntu-18-04-ubuntu-16-04/ |
+| Example       | https://hackersandslackers.com/building-java-projects-with-gradle/           |
+| Example       | https://docs.gradle.org/current/userguide/building_java_projects.html        |
+| Example       | https://mkyong.com/gradle/gradle-create-java-project-structure-automatically/|
+| Styleguide | https://kotlinlang.org/docs/reference/coding-conventions.html |
+| Regex Example | http://zetcode.com/kotlin/regularexpressions/ |
+| File Examples | https://chercher.tech/kotlin/read-write-files-kotlin |
+| Inheritance   | https://blog.mindorks.com/understanding-open-keyword-in-kotlin |
+| Interfaces    | http://programiz.com/kotlin-programming/interfaces |
+| Gson  | https://howtodoinjava.com/gson/gson/ |
+
+## Run project
+```bash
+./gradlew clean build
+./gradlew run
+
+## you can use the project gradle wrapper to run the project
+## For Linux:
+./gradlew clean build
+./gradlew run --args='[command]' -q
+
+## For Windows:
+gradlew.bat clean build
+gradlew.bat run --args='[command]' -q
 ```
-#### Tipos de variable
-```kotlin
-//Variable local - accesible solo en su scope
-var var_local : String = "Soy una variable local"
-//Variable de objeto - accesible en toda la clase
-var var_objeto : String = ""
-this.var_objeto = "Soy una variable de objeto"
+## Usage
+### Getting help
+```bash
+./gradlew run --args='h' -q
+./gradlew run --args='help' -q
 
-//Variable de clase - una sola variable para todos los objetos o instacia de la clase
-static var var_clase : String = "Soy una variable de clase"
+The Kotlin Farm - a simple command line animals app
 
-//Constante
-val var_constante : "Hola"
-```
-#### Estructuras de Control
+Usage:
+  ./gradlew run --args='[command]' -q
 
-##### Condicionales
-Estructura condicional If
-```kotlin
-if(condicion){
-    println("condición if")
-}
-else if (condicion_dos){
-    println("condución else if");    
-}
-else{
-    println("default");        
-}
-```
+Available Commands:
+  [list    | l]   <age=>  <type=>    list all available animals
+  [create  | c]   <name=> <type=>    create a animal with name
+  [delete  | d]   <name=>            delete a animal
+  [search  | s]   <name=>            search a animal
+  [food    | f]   <name=>            give food to a animal
+  [wash    | w]   <name=>            give a shower to a animal
+  [alive   | a]   <name=>            show if a animal is alive
+  [help    | h]                      help about commands
 
-Operador Ternario
-```kotlin
-// no hay pero se fuede emular
-Boolean var_bool = when{ condicion -> true else -> false}
-Boolean var_bool = if (condicion) true else false
-```
-
-Estructura condicional Switch
-```kotlin
-when{
-    condicion -> println("Es valor 1")
-    
-    else -> println("default")
-}
+Flags:
+Use ./gradlew run --args='help' -q for more information about a command.
 ```
 
-##### Bucles o Ciclos
-Estructura ciclica for
+### Creating a new animal
+```bash
+./gradlew run --args='create' -q
+./gradlew run --args='c' -q
 
-```kotlin
-// For normal
-for(i in 1 until limit){
-    println(i);  
-}
-// For each
-for(e in this.animals){
-    println(i.atributo) 
-}
+The Kotlin Farm - a simple command line animals app
 
-//For each arraylist
-arraylist.iterator().forEach{
-    print("valor ${it}")
-}
+Command Usage:
+  [create  | c]   <name=> <type=>    creates a animal with name
+
+Examples:
+  ./gradlew run --args='[create  | c] name=my_animal_name' -q
+  ./gradlew run --args='[create  | c] name=my_animal_name type=pig' -q
 ```
 
-Estructura ciclica while
-```kotlin
-while(condicion){
-    println("Iterando") 
-}
-```
-#### Estructuras de Datos
-Arreglos o Listas
-```kotlin
-//Arreglo estatico
-var var_arreglo = Array(5)
-//Arreglo dinámico
-var var_arreglo_dinamico : ArrayList<Int>  = new ArrayList<>()
-//Añadir elemento
-var_arreglo[1] = 1
-var_arreglo_dinamico.add(1)
-//Borrar elemento
-var_arreglo_dinamico.remove(1)
+### Deleting an animal
+```bash
+./gradlew run --args='delete' -q
+./gradlew run --args='d' -q
 
-//Obtener valor
-var_arreglo[1]
-var_arreglo.dinamico.get(1)
-```
-#### Métodos y Objetos
-Definir Métodos
-```kotlin
-func nombre(String param,...) : {String|Int|...}{}
-//Ejemplo
-fun saludar(nombre:String) : String{
-    println("Hola : ${nombre}");  
-}
+The Kotlin Farm - a simple command line animals app
+
+Command Usage:
+  [delete  | d]   <name=>        deletes a animal by name
+
+Examples:
+  ./gradlew run --args='[delete  | d] name=my_animal_name' -q
 ```
 
-Definir Clases
-```kotlin
-class Clase{
+### Searching an animal
+```bash
+./gradlew run --args='search' -q
+./gradlew run --args='s' -q
 
-}
+The Kotlin Farm - a simple command line animals app
 
+Command Usage:
+  [search  | s]   <name=>       searchs a animal by name
 
-//Constructor
-class Clase(var param1 : String){
-    init{
-        this.param1 = ""
-    }
-}
-
-//Instanciar
-var objeto : Clase = Clase(params...)
+Examples:
+  ./gradlew run --args='[search  | s] name=my_animal_name' -q
 ```
 
-Herencia e Implementación
-```kotlin
+### Give food to an animal
+```bash
+./gradlew run --args='food' -q
+./gradlew run --args='f' -q
 
-//Herencia
-abstract class Padre(var attr1 : String){
-  
-    init{
+The Kotlin Farm - a simple command line animals app
 
-    }
+Command Usage:
+  [food  | f]   <name=>       gives food to a animal by name
 
-    fun info(){/*Code*/}
-
-    //Métodos abstractos
-    abstract fun saludar()
-}
-
-class Hijo(attr1 : String) : Padre(attr1){
-
-    
-    override fun saludar(){/*Code*/}
-}
-
-
-var objeto : Padre = Hijo(params...)
-objeto.info()
-objeto.saludar()
-
-
-//Implementación
-interface Padre{
-    abstract fun metodo1(): Int
-    abstract fun metodo2(params ...)
-}
-
-public class Hijo : Padre{
-    
-    override fun metodo1() : Int{/*Code*/}
-    
-    override fun metodo2(params...){/*Code*/}
-}
-
-var objeto : Padre = Hijo(params...)
-objeto.metodo1()
-objeto.metodo2(params...)
+Examples:
+  ./gradlew run --args='[food  | f] name=my_animal_name' -q
 ```
+
+### Give a shower to an animal
+```bash
+./gradlew run --args='wash' -q
+./gradlew run --args='w' -q
+
+The Kotlin Farm - a simple command line animals app
+
+Command Usage:
+  [wash  | w]   <name=>       gives a shower to a animal by name
+
+Examples:
+  ./gradlew run --args='[wash  | w] name=my_animal_name' -q
+```
+
+### Check if an animal is alive
+```bash
+./gradlew run --args='alive' -q
+./gradlew run --args='a' -q
+
+The Kotlin Farm - a simple command line animals app
+
+Command Usage:
+  [alive  | a]   <name=>       checks if an animal is alive by name
+
+Examples:
+  ./gradlew run --args='[alive  | a] name=my_animal_name' -q
+```
+
+## Pending
+- [ ] Fix isAlive() method. It's Returning true all time.
+- [ ] Document IO and Dates.
+- [ ] Improve CLI printing and commands
+- [ ] Add a special character when the animal is eating or bathing
+- [ ] Add unit tests

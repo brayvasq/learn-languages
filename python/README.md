@@ -1,121 +1,140 @@
+
+# Python Farm
+Python example implementation of a little farm game.
+
 | Lenguaje | Versión        | SO                |
 | -------- | -------------- | ----------------- |
-| Python   | Python 3.6.4   | Linux - Fedora 27 |
+| Python   | Python 3.6.9   | Ubuntu 18.04.1    |
 
+## Documentation
 
-## Variables
-#### Tipos de Datos
-```python
-#Cadenas
-variable_cadena : str = "Hola Mundo"
-#Enteros
-var_entera : int = 5
-#Decimales
-var_decimal : float = 10.4
-#Booleana
-var_booleana : bool = True
-```
-**Nota :** *El tipo de dato se puede omitir* 
+| Type          | Link                                           |
+| ------------- | ---------------------------------------------- |
+| Learn Python  | https://developers.google.com/edu/python/      |
+| Tutorial      | https://www.stavros.io/tutorials/python/       |
+| Docstrings    | https://realpython.com/documenting-python-code/|
+| Unit tests    | https://realpython.com/python-testing/         |
 
-#### Tipos de variable
-```python
-#Variable local - accesible solo en su scope
-var_local = "Soy una variable local"
-#Variable de objeto - accesible en toda la clase
-self.var_objeto = "También soy una variable de objeto"
-```
-#### Estructuras de Control
-
-##### Condicionales
-Estructura condicional If
-```python
-if condicion:
-    print("condición if")
-elif condicion_dos:
-    print("condución elsif")
-else:
-    print("default")
+## Run project
+```bash
+virtualenv .
+./main.py
 ```
 
-Operador Ternario
-```python
-var_bool = valor if condicion else valor_dos
+## Usage
+### Getting help
+```bash
+./main.py h
+./main.py help
+
+The Python Farm - a simple command line animals app
+
+Usage:
+  python main.py [command]
+
+Available Commands:
+  [list    | l]   <age=>  <type=>    list all available animals
+  [create  | c]   <name=> <type=>    create a animal with name
+  [delete  | d]   <name=>            delete a animal
+  [search  | s]   <name=>            search a animal
+  [food    | f]   <name=>            give food to a animal
+  [wash    | w]   <name=>            give a shower to a animal
+  [alive   | a]   <name=>            show if a animal is alive
+  [help    | h]                      help about commands
+
+Flags:
+  -v, --version  show the app version
+
+Use python main.py [command] --help for more information about a command.
 ```
 
-Estructura condicional Switch
-```python
-#En python no hay una estructura de control llamada switch
+### Creating a new animal
+```bash
+./main.py create
+./main.py c
+
+The Python Farm - a simple command line animals app
+
+Command Usage:
+  [create  | c]   <name=> <type=>    creates a animal with name
+
+Examples:
+  python main.py [create  | c]  name=my_animal_name
+  python main.py [create  | c]  name=my_animal_name type=pig
 ```
 
-##### Bucles o Ciclos
-Estructura ciclica for
+### Deleting an animal
+```bash
+./main.py delete
+./main.py d
 
-```python
-for i in range(0,limite):
-    print("Soy "+str(i))
+The Python Farm - a simple command line animals app
+
+Command Usage:
+  [delete  | d]   <name=>        deletes a animal by name
+
+Examples:
+  python main.py [delete  | d]  name=my_animal_name
 ```
 
-Estructura ciclica while
-```python
-while condicion:
-    print("Iterando")
-```
-#### Estructuras de Datos
-Arreglos o Listas
-```python
-var_arreglo : list = []
-# Añadir elemento
-var_arreglo.append(5)
-# Borrar elemento
-var_arreglo.remove(5)
+### Searching an animal
+```bash
+./main.py search
+./main.py s
 
-# Ordenar
-sorted(var_arreglo, key=lambda item: item.valor)
+The Python Farm - a simple command line animals app
 
-# Buscar
-item = [x for x in var_arreglo if condicion]
+Command Usage:
+  [search  | s]   <name=>       searchs a animal by name
 
-# Recorrer
-for i in var_arreglo:
-    print(i)
-
-#Acceder a una posición
-var_item = var_arreglo[pos]
-```
-#### Métodos y Objetos
-Definir Métodos
-```python
-def metodo():
-    return 5
-
-# Método con parametro
-def metodo(valor = 0)
-    return valor
+Examples:
+  python main.py [search  | s]  name=my_animal_name
 ```
 
-Definir Clases
-```python
-class Clase:
+### Give food to an animal
+```bash
+./main.py food
+./main.py f
 
-#Constructor
-class Clase:
-    def __init__(self,valor):
-        self.valor = valor
+The Python Farm - a simple command line animals app
 
-# Instanciar
-objeto = Clase(5)
+Command Usage:
+  [food  | f]   <name=>       gives food to a animal by name
+
+Examples:
+  python main.py [food  | f]  name=my_animal_name
 ```
 
-Herencia
-```ruby
-class Padre:
-    def metodo(self):
-        print("Hola")
+### Give a shower to an animal
+```bash
+./main.py wash
+./main.py w
 
-class Hijo(Padre):
-    def __init__(self):
-        Padre.__init__(self)
+The Python Farm - a simple command line animals app
 
-objeto = Hijo()
-objeto.metodo()
+Command Usage:
+  [wash  | w]   <name=>       gives a shower to a animal by name
+
+Examples:
+  python main.py [wash  | w]  name=my_animal_name
 ```
+
+### Check if an animal is alive
+```bash
+./main.py alive
+./main.py a
+
+The Python Farm - a simple command line animals app
+
+Command Usage:
+  [alive  | a]   <name=>       checks if an animal is alive by name
+
+Examples:
+  python main.py [alive  | a]  name=my_animal_name
+```
+
+## Pending
+- [ ] Document IO and Dates.
+- [ ] Improve CLI printing and commands
+- [ ] Add a special character when the animal is eating or bathing
+- [ ] Add unit tests

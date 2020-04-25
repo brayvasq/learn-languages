@@ -1,187 +1,136 @@
-| Lenguaje | Versión              | SO                |
-| -------- | ---------------------| ----------------- |
-| C#       | dotnet core 2.1.4    | Linux - Fedora 27 |
+# .NET Farm
+.NET example implementation of a little farm game
 
-## Variables
-#### Tipos de Datos
-```c#
-//Accesores
-{public|private|protected} {int|string|double ...} variable;
-//Cadenas
-string variable_cadena = "Hola Mundo";
-//Enteros
-int var_entera = 5;
-//Decimales
-float var_float = 10;
-double var_double = 12.3;
-//Booleana
-bool var_booleana = true;
-```
-#### Tipos de variable
-```c#
-//Variable local - accesible solo en su scope
-string var_local = "Soy una variable local";
-//Variable de objeto - accesible en toda la clase
-string var_objeto;
-this.var_objeto = "Soy una variable de objeto";
+| Lenguaje | Versión                | SO                |
+| -------- | --------------         | ----------------- |
+| .NET     | 3.1.201                | Ubuntu 18.04.1    |
 
-//Variable de clase - una sola variable para todos los objetos o instacia de la clase
-static string var_clase = "Soy una variable de clase";
-```
-#### Estructuras de Control
+## Documentation
 
-##### Condicionales
-Estructura condicional If
-```c#
-if(condicion){
-    Console.WriteLine("condición if");
-}
-else if(condicion_dos){
-    Console.WriteLine("condución else if");    
-}
-else{
-    Console.WriteLine("default");        
-}
+| Type          | Link                                           |
+| ------------- | ---------------------------------------------- |
+| Install       | https://docs.microsoft.com/es-es/dotnet/core/install/linux-package-manager-ubuntu-1804    |
+| Docs          | https://docs.microsoft.com/es-es/dotnet/core/get-started?tabs=linux     |
+| Dates         | https://stackoverflow.com/questions/4946316/showing-difference-between-two-datetime-values-in-hours |
+| JSON          | https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json-how-to |
+| IO            | https://www.c-sharpcorner.com/UploadFile/mahesh/how-to-read-a-text-file-in-C-Sharp/ |
+
+## Run project
+```bash
+dotnet run
 ```
 
-Operador Ternario
-```c#
-bool var_bool = condicion? true:false;
+## Usage
+### Getting help
+```bash
+dotnet run
+
+The DotNET Farm - a simple command line animals app
+
+Usage:
+  dotnet run [command] 
+
+Available Commands:
+  [list    | l]   <age=>  <type=>    list all available animals
+  [create  | c]   <name=> <type=>    create a animal with name
+  [delete  | d]   <name=>            delete a animal
+  [search  | s]   <name=>            search a animal
+  [food    | f]   <name=>            give food to a animal
+  [wash    | w]   <name=>            give a shower to a animal
+  [alive   | a]   <name=>            show if a animal is alive
+  [help    | h]                      help about commands
+
+Flags:
+Use dotnet run help  for more information about a command.
 ```
 
-Estructura condicional Switch
-```c#
-switch(variable){
-    case valor:
-        System.out.println("Es valor 1");  
-        break;
-    default:
-        System.out.println("default");  
-        break;
-}
+### Creating a new animal
+```bash
+dotnet run create
+dotnet run c
+
+The DotNET Farm - a simple command line animals app
+
+Command Usage:
+  [create  | c]   <name=> <type=>    creates a animal with name
+
+Examples:
+  dotnet run [create  | c] name=my_animal_name 
+  dotnet run [create  | c] name=my_animal_name type=pig
 ```
 
-##### Bucles o Ciclos
-Estructura ciclica for
+### Deleting an animal
+```bash
+dotnet run delete
+dotnet run d
 
-```c#
-// For normal
-for(var i;i<10;i++){
-    Console.WriteLine(i);  
-}
-// For each
-for(Object i in lista){
-    Console.WriteLine(i.atributo);  
-}
+The DotNET Farm - a simple command line animals app
+
+Command Usage:
+  [delete  | d]   <name=>        deletes a animal by name
+
+Examples:
+  dotnet run [delete  | d] name=my_animal_name
 ```
 
-Estructura ciclica while
-```c#
-while(condicion){
-    Console.WriteLine("Iterando");  
-}
-```
-#### Estructuras de Datos
-Arreglos o Listas
-```c#
-//Arreglo estatico
-int[] var_arreglo = new int[5];
-//Lista
-List<int> var_lista = new List<>();
-//Añadir elemento
-var_arreglo[1] = 1;
-var_lista.Add(1);
-//Borrar elemento
-var_lista.Remove(1);
+### Searching an animal
+```bash
+dotnet run search
+dotnet run s
 
+The DotNET Farm - a simple command line animals app
 
-//Obtener valor
-var_arreglo[1];
-var_lista.[1];
-```
-#### Métodos y Objetos
-Definir Métodos
-```c#
-{public|private|protected} {void|int|String...} nombre(String param,...){}
-//Ejemplo
-public void saludar(String nombre){
-    Console.WriteLine("Hola : "+nombre);  
-}
+Command Usage:
+  [search  | s]   <name=>       searchs a animal by name
+
+Examples:
+  dotnet run [search  | s] name=my_animal_name
 ```
 
-Definir Clases
-```c#
-namespace ejemplo{
-    public class Clase{
+### Give food to an animal
+```bash
+dotnet run food
+dotnet run f
 
-    }
-}
+The DotNET Farm - a simple command line animals app
 
+Command Usage:
+  [food  | f]   <name=>       gives food to a animal by name
 
-//Constructor
-namespace ejemplo{
-    class Clase{
-        public Clase(params...){
-            this.param1 = param1;
-        }
-    }
-}
-
-//Instanciar
-Clase objeto = new Clase(params...);
+Examples:
+  dotnet run [food  | f] name=my_animal_name
 ```
 
-Herencia e Implementación
-```c#
+### Give a shower to an animal
+```bash
+dotnet run wash
+dotnet run w
 
-//Herencia
-namespace ejemplo{
-    public abstract class Padre{
-        string attr1;
-        public Padre(string attr1){
-            this.attr1 = attr1;
-        }
+The DotNET Farm - a simple command line animals app
 
-        public void info(){/*Code*/}
+Command Usage:
+  [wash  | w]   <name=>       gives a shower to a animal by name
 
-        //Métodos abstractos
-        public abstract void saludar();
-    }
-}
-
-namespace ejemplo{
-    class Hijo : Padre{
-        public Hijo(string attr1):base(attr1){
-
-        }
-
-        public override void saludar(){/*Code*/}
-    }
-}
-
-
-Padre objeto = new Hijo(params...)
-objeto.info();
-objeto.saludar();
-
-
-//Implementación
-namespace ejemplo{
-    public interface Padre{
-        public abstract int metodo1();
-        public abstract void metodo2();
-    }
-}
-namespace ejemplo{
-    public class Hijo : Padre{
-        
-        public override int metodo1(){/*Code*/}
-        
-        public override void metodo2(params...){/*Code*/}
-    }
-}
-
-Padre objeto = new Hijo(params...);
-objeto.metodo1();
-objeto.metodo2(params...);
+Examples:
+  dotnet run [wash  | w] name=my_animal_name
 ```
+
+### Check if an animal is alive
+```bash
+dotnet run alive
+dotnet run a
+
+The DotNET Farm - a simple command line animals app
+
+Command Usage:
+  [alive  | a]   <name=>       checks if an animal is alive by name
+
+Examples:
+  dotnet run [alive  | a] name=my_animal_name
+```
+
+## Pending
+- [ ] Document IO and Dates.
+- [ ] Improve CLI printing and commands
+- [ ] Add a special character when the animal is eating or bathing
+- [ ] Add unit tests

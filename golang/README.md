@@ -2,6 +2,7 @@
 | -------- | --------------       | ----------------- |
 | Golang   | go version go1.9.5   | Linux - Fedora 27 |
 
+> :warning: This project has not yet been updated to the Farm Game project. Also, the documentation is not up to date.
 
 ## Variables
 #### Tipos de Datos

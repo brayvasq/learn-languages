@@ -2,6 +2,8 @@
 | -------- | -------------- | ----------------- |
 | Ruby     | ruby 2.4.3p205 | Linux - Fedora 27 |
 
+> :warning: This project has not yet been updated to the Farm Game project. Also, the documentation is not up to date.
+
 ## Variables
 #### Tipos de Datos
 ```ruby
