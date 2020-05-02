@@ -1,0 +1,278 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "ruby"
+
+# Class that works as a kind of UI
+class Commands
+    # Class constructor
+    #
+    # @param data [Array] The input array
+    def initialize(data)
+        @app = Farm.new
+        @data = data
+        @data_len = data.size
+    end
+
+    # Obtain the command and process the input data
+    def process
+        command = get_command()
+
+        if command
+            verify_command(command)
+        else
+            help
+        end
+    end
+
+    # Returns the command
+    #
+    # @return [String] The first item in the input array, if it's given
+    def get_command
+        command = nil
+
+        command = @data[0] if @data_len > 0
+
+        return command
+    end
+
+    # Identify the specific action to execute and call the respective action
+    #
+    # @param command [String] Command obtained from get_command() method
+    def verify_command(command)
+        if ["list", "l"].include?(command)
+            list_command()
+        elsif ["create", "c"].include?(command)
+            list_command() if create_command()
+        elsif ["delete", "d"].include?(command)
+            list_command() if delete_command()
+        elsif ["search", "s"].include?(command)
+            search_command()
+        elsif ["food", "f"].include?(command)
+            food_command()
+        elsif ["wash", "w"].include?(command)
+            wash_command()
+        elsif ["alive", "a"].include?(command)
+            alive_command()
+        elsif ["help", "h"].include?(command)
+            help()
+        else
+            help()
+        end
+    end
+
+    # Process the [list | l] command
+    def list_command
+        age = get_param("age\=", "(\d+)")
+        type = get_param("type\=", "([a-zA-Z]+)")
+
+        @app.list_animals(age, type)
+    end
+
+    # Process the [create | c] command
+    #
+    # @return [Boolean] true, if the animal was created
+    def create_command
+        name = get_param("name=", "([a-zA-Z]+)")
+        animal_type = get_param("type=", "([a-zA-Z]+)")
+
+        created = false
+
+        if name
+            created = @app.create_animal(name, animal_type)
+        else
+            puts "Error!: A name is required to create an animal"
+            create_command_help()
+        end
+    end
+
+    # Process the [delete | c] command
+    #
+    # @return [Boolean] true if the animal was deleted
+    def delete_command
+        name = get_param("name=", "([a-zA-Z]+)")
+
+        deleted = false
+
+        if name
+            @app.delete_animal(name)
+        else
+            puts "Error!: A name is required to delete an animal"
+            delete_command_help()
+        end
+    end
+
+    # Process the [search | s] command
+    def search_command
+        name = get_param("name=", "([a-zA-Z]+)")
+
+        if name
+            @app.search name
+        else
+            puts "Error!: A name is required to search an animal"
+            search_command_help()
+        end
+    end
+
+    # Process the [food | f] command
+    def food_command
+        name = get_param("name=", "([a-zA-Z]+)")
+
+        if name
+            @app.food name
+        else
+            puts "Error!: A name is required to give food to an animal"
+            food_command_help()
+        end
+    end
+
+    # Process the [wash | w] command
+    def wash_command
+        name = get_param("name=", "([a-zA-Z]+)")
+
+        if name
+            @app.wash name
+        else
+            puts "Error!: A name is required to give a shower to an animal"
+            wash_command_help()
+        end
+    end
+
+    # Process the [alive | a] command
+    def alive_command
+        name = get_param("name=", "([a-zA-Z]+)")
+
+        if name
+            @app.alive name
+        else
+            puts "Error!: A name is required to show if an animal is alive"
+            alive_command_help()
+        end
+    end
+
+    # Returns the queried param using regex
+    #
+    # @param value [String] variable name to search
+    # @param dataType [String] variable pattern equivalent
+    #
+    # Examples:
+    #   @data = ["name=jay", "age=10"]
+    #
+    #   get_param("name=", "([a-zA-Z]+)")
+    #     => "jay"
+    #
+    #   get_param("age=", "(\\d+)")
+    #     => 10
+    #
+    #   get_param("type=", "([a-zA-Z]+)")
+    #     => nil
+    #
+    # @return [String] param, the param value if a match occurs
+    def get_param(value, data_type)
+        param = nil
+
+        if @data_len > 1
+            data_str = @data[1..].join ";"
+            pattern = /#{value}#{data_type}/
+            param  = data_str.scan(pattern).flatten
+
+            param = (param.size > 0) && (not param.empty?) ? param[0] : nil
+        end
+
+        return param
+    end
+
+    private
+    # Shows help for the [create | c] command
+    def create_command_help
+        puts "The Ruby Farm - a simple command line animals app"
+        puts
+        puts "Command Usage:"
+        puts "  [create  | c]   <name=> <type=>    creates a animal with name"
+        puts ""
+        puts "Examples:"
+        puts "  bin/run [create  | c]  name=my_animal_name"
+        puts "  bin/run [create  | c]  name=my_animal_name type=pig"
+    end
+
+    # Shows help for the [delete | c] command
+    def delete_command_help
+        puts "The Ruby Farm - a simple command line animals app"
+        puts
+        puts "Command Usage:"
+        puts "  [delete  | d]   <name=>        deletes a animal by name"
+        puts ""
+        puts "Examples:"
+        puts "  bin/run [delete  | d]  name=my_animal_name"
+    end
+
+    # Shows help for the [search | s] command
+    def search_command_help
+        puts "The Ruby Farm - a simple command line animals app"
+        puts
+        puts "Command Usage:"
+        puts "  [search  | s]   <name=>       searchs a animal by name"
+        puts ""
+        puts "Examples:"
+        puts "  bin/run [search  | s]  name=my_animal_name"
+    end
+
+    # Shows help for the [food | f] command
+    def food_command_help
+        puts "The Ruby Farm - a simple command line animals app"
+        puts
+        puts "Command Usage:"
+        puts "  [food  | f]   <name=>       gives food to a animal by name"
+        puts ""
+        puts "Examples:"
+        puts "  bin/run [food  | f]  name=my_animal_name"
+    end
+
+    # Shows help for the [wash | w] command
+    def wash_command_help
+        puts "The Ruby Farm - a simple command line animals app"
+        puts
+        puts "Command Usage:"
+        puts "  [wash  | w]   <name=>       gives a shower to a animal by name"
+        puts ""
+        puts "Examples:"
+        puts "  bin/run [wash  | w]  name=my_animal_name"
+    end
+
+    # Shows help for the [alive | a] command
+    def alive_command_help
+        puts "The Ruby Farm - a simple command line animals app"
+        puts
+        puts "Command Usage:"
+        puts "  [alive  | a]   <name=>       checks if an animal is alive by name"
+        puts ""
+        puts "Examples:"
+        puts "  bin/run [alive  | a]  name=my_animal_name"
+    end
+
+    # Shows help for the app
+    def help
+        puts "The Ruby Farm - a simple command line animals app"
+        puts
+        puts "Usage:"
+        puts "  bin/run [command]"
+        puts
+        puts "Available Commands:"
+        puts "  [list    | l]   <age=>  <type=>    list all available animals"
+        puts "  [create  | c]   <name=> <type=>    create a animal with name"
+        puts "  [delete  | d]   <name=>            delete a animal"
+        puts "  [search  | s]   <name=>            search a animal"
+        puts "  [food    | f]   <name=>            give food to a animal"
+        puts "  [wash    | w]   <name=>            give a shower to a animal"
+        puts "  [alive   | a]   <name=>            show if a animal is alive"
+        puts "  [help    | h]                      help about commands"
+        puts ""
+        puts "Flags:"
+        puts "  -v, --version  show the app version"
+        puts ""
+        puts "Use bin/run [command] --help for more information about a command."
+    end
+end
+
+# Running the Commands processing
+Commands.new(ARGV).process

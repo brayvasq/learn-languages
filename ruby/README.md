@@ -1,140 +1,161 @@
-| Lenguaje | Versión        | SO                |
+# Ruby Farm
+
+Ruby example implementation of a little farm game.
+
+| Language | Version        | SO                |
 | -------- | -------------- | ----------------- |
-| Ruby     | ruby 2.4.3p205 | Linux - Fedora 27 |
+| Ruby     | ruby 2.6.3p62  | Ubuntu 18.04.1    |
 
-> :warning: This project has not yet been updated to the Farm Game project. Also, the documentation is not up to date.
+## Documentation
 
-## Variables
-#### Tipos de Datos
-```ruby
-#Cadenas
-variable_cadena = "Hola Mundo"
-#Enteros
-var_entera = 5
-#Decimales
-var_decimal = 10.4
-#Booleana
-var_booleana = true
-```
-#### Tipos de variable
-```ruby
-#Variable local - accesible solo en su scope
-var_local = "Soy una variable local"
-#Variable de objeto - accesible en toda la clase
-@var_objeto = "Soy una variable de objeto"
-## Tambien se puede representar de la siguiente manera
-self.var_objeto = "También soy una variable de objeto"
-#Variable de clase - una sola variable para todos los objetos o instacia de la clase
-@@var_clase = "Soy una variable de clase"
-```
-#### Estructuras de Control
+| Type          | Link                                           |
+| ------------- | ---------------------------------------------- |
+| Learn Ruby    | https://ruby-doc.org/                          |
+| Tutorial      | https://bundler.io/guides/creating_gem.html    |
+| Unit tests    | https://rspec.info/                            |
 
-##### Condicionales
-Estructura condicional If
-```ruby
-if condicion 
-    puts "condición if"
-elsif condicion_dos
-    puts "condución elsif"
-else
-    puts "default"
-end
-```
+## Installation
 
-Operador Ternario
-```ruby
-var_bool = if condicion then valor else valor_dos end
-```
-
-Estructura condicional Switch
-```ruby
-case var
-when valor_uno
-    puts "Es valor 1"
-else
-    puts "default"
-end
-```
-
-##### Bucles o Ciclos
-Estructura ciclica for
+Add this line to your application's Gemfile:
 
 ```ruby
-for i in 0..limite
-    puts "Soy #{i}"
-end
+gem 'ruby'
 ```
 
-Estructura ciclica while
-```ruby
-while condicion do
-    puts "Iterando"
-end
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install ruby
+
+Or clone the repo and run manually
+    $ git clone https://github.com/brayvasq/learn-languages.git
+    $ cd learn-languages/ruby
+    $ bin/run
+
+## Usage
+### Getting help
+```bash
+bin/run h
+bin/run help
+
+The Ruby Farm - a simple command line animals app
+
+Usage:
+  bin/run [command]
+
+Available Commands:
+  [list    | l]   <age=>  <type=>    list all available animals
+  [create  | c]   <name=> <type=>    create a animal with name
+  [delete  | d]   <name=>            delete a animal
+  [search  | s]   <name=>            search a animal
+  [food    | f]   <name=>            give food to a animal
+  [wash    | w]   <name=>            give a shower to a animal
+  [alive   | a]   <name=>            show if a animal is alive
+  [help    | h]                      help about commands
+
+Flags:
+  -v, --version  show the app version
+
+Use bin/run [command] --help for more information about a command.
 ```
-#### Estructuras de Datos
-Arreglos o Listas
-```ruby
-var_arreglo = []
-# Añadir elemento
-var_arreglo.push(5)
-# Borrar elemento
-var_arreglo.delete(5)
+### Creating a new animal
+```bash
+bin/run c
+bin/run create
 
-# Ordenar
-var_arreglo.sort_by {|a| a==valor}
+The Ruby Farm - a simple command line animals app
 
-# Buscar
-var_arreglo.select {|a| a==valor}
+Command Usage:
+  [create  | c]   <name=> <type=>    creates a animal with name
 
-# Recorrer
-var_arreglo.each {|a| puts "Valor : #{a}"}
-
-#Acceder a una posición
-var_item = var_arreglo[pos]
-```
-#### Métodos y Objetos
-Definir Métodos
-```ruby
-def metodo
-    5 # Retorno implicicto
-end
-
-# Método con parametro
-def metodo(valor = 0)
-    return valor
-end
-```
-
-Definir Clases
-```ruby
-class Clase
-end
-
-#Constructor
-class Clase
-    def initialize(valor)
-        @valor = valor
-    end
-end
-
-# Instanciar
-objeto = Clase.new 5
-# Lo anterior también es equivalente a:
-obtejo_dos = Clase.new(5)
+Examples:
+  bin/run [create  | c]  name=my_animal_name
+  bin/run [create  | c]  name=my_animal_name type=pig
 ```
 
-Herencia
-```ruby
-class Padre
-    def metodo
-        puts "Hola"
-    end
-end
+### Deleting an animal
+```bash
+bin/run d
+bin/run delete
 
-class Hijo < Padre
+The Ruby Farm - a simple command line animals app
 
-end
+Command Usage:
+  [delete  | d]   <name=>        deletes a animal by name
 
-objeto = Hijo.new
-objeto.metodo
+Examples:
+  bin/run [delete  | d]  name=my_animal_name
 ```
+
+### Searching an animal
+```bash
+bin/run s
+bin/run search
+
+The Ruby Farm - a simple command line animals app
+
+Command Usage:
+  [search  | s]   <name=>       searchs a animal by name
+
+Examples:
+  bin/run [search  | s]  name=my_animal_name
+```
+
+### Give food to an animal
+```bash
+bin/run f
+bin/run food
+
+The Ruby Farm - a simple command line animals app
+
+Command Usage:
+  [food  | f]   <name=>       gives food to a animal by name
+
+Examples:
+  bin/run [food  | f]  name=my_animal_name
+```
+
+### Give a shower to an animal
+```bash
+bin/run w
+bin/run wash
+
+The Ruby Farm - a simple command line animals app
+
+Command Usage:
+  [wash  | w]   <name=>       gives a shower to a animal by name
+
+Examples:
+  bin/run [wash  | w]  name=my_animal_name
+```
+
+### Check if an animal is alive
+```bash
+bin/run a
+bin/run alive
+
+The Ruby Farm - a simple command line animals app
+
+Command Usage:
+  [alive  | a]   <name=>       checks if an animal is alive by name
+
+Examples:
+  bin/run [alive  | a]  name=my_animal_name
+```
+
+## Development
+
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+
+To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/brayvasq/learn-languages.
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
