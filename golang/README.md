@@ -1,151 +1,157 @@
-| Lenguaje | Versión              | SO                |
-| -------- | --------------       | ----------------- |
-| Golang   | go version go1.9.5   | Linux - Fedora 27 |
+# Golang Farm
+Golang example implementation of a little farm game.
 
-> :warning: This project has not yet been updated to the Farm Game project. Also, the documentation is not up to date.
+| Language | Versión                           | SO                |
+| -------- | --------------                    | ----------------- |
+| Go       | go version go1.10.4 linux/amd64   | Ubuntu 18.04.1    |
 
-## Variables
-#### Tipos de Datos
-```go
-//Cadenas
-var variable_cadena  string 
-variable_cadena = "Hola Mundo"
-//Enteros
-var var_entera int
-var_entera = 5
-//Decimales
-var var_decimal float = 10.4
-var_decimal = 10.4
-//Booleana
-var var_booleana bool
-var_booleana = true
+## Documentation
 
-// Inferencia de tipos
-var_t := "Valor"
-```
-**Nota :** *El tipo de dato se puede omitir* 
+| Type          | Link                                                           |
+| ------------- | -------------------------------------------------------------- |
+| Learn Python  | https://golang.org/                                            |
+| Tutorial      | https://www.wolfe.id.au/2020/03/10/starting-a-go-project/      |
+| StyleGuide    | https://golang.org/doc/effective_go.html                       |
+| Time          | https://golang.org/pkg/time/                                   |
+| JSON          | https://blog.golang.org/json                                   |
+| IO            | https://golang.org/pkg/io/ioutil/                              |
+| ARGS          | https://gobyexample.com/command-line-arguments                 |
+| Regex         | https://gobyexample.com/regular-expressions                    |
 
-#### Estructuras de Control
-
-##### Condicionales
-Estructura condicional If
-```go
-if condicion{
-    fmt.Println("condición if")
-}
-else if condicion_dos{
-    fmt.Println("condución elsif")
-}
-else{
-    fmt.Print("default")
-}
+## Run project
+```bash
+# Clone repo
+git clone https://github.com/brayvasq/learn-languages.git
+# Create github user golang projects folder
+mkdir -p mkdir -p /home/USERNAME/go/src/github.com/USERNAME/
+# Move project to the project folder
+mv learn-languages /home/USERNAME/go/src/github.com/USERNAME/
+# Move to the golang project
+cd /home/USERNAME/go/src/github.com/USERNAME/learn-languages/golang
+# Run the main file
+go run cmd/src/main.go
+# Or compile the file
+cd cmd/src
+go build -o farm
+./farm
 ```
 
-Operador Ternario
-```go
-variable := func() bool {if cow.Age <= 25 {return true }else{return false}}()
-c := map[bool]int{true: 1, false: 0} [5 > 4]
+## Usage
+### Getting help
+```bash
+./farm
+./farm h
+./farm help
+
+The Golang Farm - a simple command line animals app
+
+Usage:
+  ./farm [command]
+
+Available Commands:
+  [list    | l]                      list all available animals
+  [create  | c]   <name=> <type=>    create a animal with name
+  [delete  | d]   <name=>            delete a animal
+  [search  | s]   <name=>            search a animal
+  [food    | f]   <name=>            give food to a animal
+  [wash    | w]   <name=>            give a shower to a animal
+  [alive   | a]   <name=>            show if a animal is alive
+  [help    | h]                      help about commands
+
+Flags:
+Use ./farm help for more information about a command.
 ```
 
-Estructura condicional Switch
-```go
-i := 2
-switch i {
-case 1:
-    fmt.Println("one")
-case 2:
-    fmt.Println("two")
-case 3:
-    fmt.Println("three")
-}
+### Creating a new animal
+```bash
+./farm c
+./farm create
+
+The Go Farm - a simple command line animals app
+
+Command Usage:
+  [create  | c]   <name=> <type=>    creates a animal with name
+
+Examples:
+  ./farm [create  | c] name=my_animal_name
+  ./farm [create  | c] name=my_animal_name type=pig
 ```
 
-##### Bucles o Ciclos
-Estructura ciclica for
+### Deleting an animal
+```bash
+./farm d
+./farm delete
 
-```go
-// Clasic
-for i:=0; i<limit; i++{
+The Go Farm - a simple command line animals app
 
-}
+Command Usage:
+  [delete  | d]   <name=>        deletes a animal by name
 
-// foreach
-for _,val := range list{
-
-}
-
-// While
-for i < limit{
-
-}
-
-// Infinite
-for {
-
-}
-
+Examples:
+  ./farm [delete  | d] name=my_animal_name
 ```
 
-#### Estructuras de Datos
-Arreglos o Listas
-```go
+### Searching an animal
+```bash
+./farm s
+./farm search
 
-var_arreglo := []int
-var_arreglo[0] = 1
+The Go Farm - a simple command line animals app
 
-var_lista:= make([]int,0)
-// Añadir elemento
-var_lista = append(var_arreglo,item)
+Command Usage:
+  [search  | s]   <name=>       searchs a animal by name
 
-// Recorrer
-for _,i := range var_lista{
-    print(i)
-}
-
-// Acceder a una posición
-var_item = var_lista[pos]
-```
-#### Métodos y Objetos
-Definir Métodos
-```go
-func Metodo(){
-    return 5
-}
-
-// Método con parametro
-func Metodo(valor int) int{
-    return valor
-}
+Examples:
+  ./farm [search  | s] name=my_animal_name
 ```
 
-Definir Clases
-```go
-type Clase struct
+### Give food to an animal
+```bash
+./farm f
+./farm food
 
-// Constructor
-type Clase struct{
-    valor int
-}
+The Go Farm - a simple command line animals app
 
+Command Usage:
+  [food  | f]   <name=>       gives food to a animal by name
 
-// Instanciar
-objeto := Clase{5}
+Examples:
+  ./farm [food  | f] name=my_animal_name
 ```
 
-Composición
-```go
-type Padre struct{
-    valor int
-}
+### Give a shower to an animal
+```bash
+./farm w
+./farm wash
 
-func (p *Padre) Metodo(){
-    fmt.Println("Hola")
-}
+The Go Farm - a simple command line animals app
 
-type Hijo struct{
-    Padre
-}
+Command Usage:
+  [wash  | w]   <name=>       gives a shower to a animal by name
 
-objeto := Hijo(Padre{5})
-objeto.metodo()
+Examples:
+  ./farm [wash  | w] name=my_animal_name
 ```
+
+### Check if an animal is alive
+```bash
+./farm a
+./farm alive
+
+The Go Farm - a simple command line animals app
+
+Command Usage:
+  [alive  | a]   <name=>       checks if an animal is alive by name
+
+Examples:
+  ./farm [alive  | a] name=my_animal_name
+```
+
+## Pending
+- [ ] Improve the param receiver to avoid the underscores (_) in names
+- [ ] Use interface for create and search animals.
+- [ ] Document IO and Dates.
+- [ ] Document regex.
+- [ ] Improve CLI printing and commands.
+- [ ] Add a special character when the animal is eating or bathing.
+- [ ] Add unit tests.
